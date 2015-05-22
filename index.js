@@ -3,11 +3,12 @@ var Slack   = require('slack-client');
 var _       = require('lodash');
 var prompt  = require('prompt');
 var actions = require('./lib/actions');
+var config  = require('./config');
 
 // Auth variables
-var token = 'xoxb-5028640813-flXu1NI82FH7m5pOwCsSbiFk'; // Add a bot at https://my.slack.com/services/new/bot and copy the token here.
-var autoReconnect = true;
-var autoMark = true;
+var token = config.token;
+var autoReconnect = config.autoReconnect;
+var autoMark = config.autoMark;
 
 // Construct
 var slack = new Slack(token, autoReconnect, autoMark);
