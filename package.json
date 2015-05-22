@@ -26,6 +26,7 @@
   "dependencies": {
     "bluebird": "^2.9.25",
     "co-prompt": "^1.0.0",
+    "jira": "^0.9.2",
     "lodash": "^3.9.1",
     "node-slackr": "^0.1.0",
     "prompt": "^0.2.14"
