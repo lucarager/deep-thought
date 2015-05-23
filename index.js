@@ -60,19 +60,23 @@ function onMessage (message) {
 
     var config = createMessageConfig(message);
 
-    _.forEach(actions, function (action) {
+    _.forEach(actions, function (action, name) {
         var _a = [];
         try {
-            _a = message.text.match(action.regex) || [];
+            _a = action.regex.exec(message.text) || [];
         } catch(e) {
             onError(e.toString());
         }
-
         if (_a.length > 0) {
+            // If there's subresults, the first one will be the full string
+            if (_a.length > 1) {
+                _a.shift();
+            }
             var args = {};
             for (var i = _a.length - 1; i >= 0; i--) {
                 args[action.params[i]] = _a[i];
             }
+            console.log('Executing', name);
             action.fn(slack, config, args);
         }
 

@@ -30,6 +30,8 @@
     "lodash": "^3.9.1",
     "node-slackr": "^0.1.0",
     "prompt": "^0.2.14",
+    "request": "^2.55.0",
+    "request-promise": "^0.4.2",
     "slack-client": "^1.4.0"
   }
 }
