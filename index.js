@@ -60,6 +60,8 @@ function onMessage (message) {
 
     var config = createMessageConfig(message);
 
+    console.log('Received: ' + message.type + ' ' + config.channelName + ' ' + config.userName + ' ' + message.ts + ' "' + message.text +'"');
+
     _.forEach(actions, function (action, name) {
         var _a = [];
         try {
@@ -78,11 +80,10 @@ function onMessage (message) {
             }
             console.log('Executing', name);
             action.fn(slack, config, args);
+
         }
 
     });
-
-    console.log('Received: ' + message.type + ' ' + config.channelName + ' ' + config.userName + ' ' + message.ts + ' "' + message.text +'"');
 
 }
 
