@@ -66,6 +66,7 @@ function onMessage (message) {
         var _a = [];
         try {
             _a = action.regex.exec(message.text) || [];
+            action.regex.lastIndex = 0; // reset global regex index
         } catch(e) {
             onError(e.toString());
         }
